@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<form action="/request/test" method="POST">{% csrf_token %}
+    {% for field in form %}
+        <div class="form-group">
+            <label class="col-sm-2 control-label">{{ field.label_tag }}</label>
+            {{ field }}
+        </div>
+    {% endfor %}
+    <input type="text" hidden="hidden" name="pro" value="test">
+    <input type="submit" name="submit" value="Create Article">
+</form>
+{% endblock content %}

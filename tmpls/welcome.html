@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<form action="/welcome/" method="post" xmlns="http://www.w3.org/1999/html">{% csrf_token %}
+    <h1 align="center">Welcome</h1>
+    <p align="center">Please select project or create new one</p>
+    <div style="width:400px; height:50px; text-align:center; ; margin:0 auto;">
+    <select align="center" name="exist">
+        <option disabled selected value> -- select an option -- </option>
+        {% for i in wtf %}
+        <option>{{ i.project }}</option>
+        {% endfor %}
+    </select>
+    <input type="text" name="pro">
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    <h3 align="center">OR</h3>
+    <p align="center">If you wonna check already exist information click here</p>
+    <div style="text-align:center; ; margin:0 auto;">
+    <a href="http://127.0.0.1:8000/show/"><button type="button" class="btn btn-primary">Check</button></a>
+        </div>
+</form>
+{% endblock content %}

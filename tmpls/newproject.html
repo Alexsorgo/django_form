@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<form action="/created/" method="post">{% csrf_token %}
+    <h3>It's new project - {{ pro }}</h3>
+    <h3>Let's add some requests</h3>
+    <h3>Select tag</h3>
+    <input type="text" name="tag">
+    <h3>Select URL</h3>
+    <input type="text" name="url">
+    <h3>Select Method</h3>
+    <input type="text" name="meth">
+    <h3>Select Headers</h3>
+    <p>Enter keys, separated by commas<span style='padding-left:35px;'>Enter values, separated by commas</p>
+    <input type="text" name="hdkeys"><span style='padding-left:100px;'><input type="text" name="hdvalues">
+    <h3>Select Body</h3>
+    <p>Enter keys, separated by commas<span style='padding-left:35px;'>Enter values, separated by commas</p>
+    <input type="text" name="keys"><span style='padding-left:100px;'> </span><input type="text" name="values">
+    <input type="submit" value="Submit" class="btn btn-primary">
+    <input type="text" hidden="hidden" name="pro" value={{ wtf }}>
+</form>
+{% endblock content %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>You choose {{ pro }} project</h3>
+<h3>Now choose what you wonna do?</h3>
+</form>
+<form action="http://127.0.0.1:8000/run/" method="post">{% csrf_token %}
+    <p><input type="submit" value="All" ></a> - Send all request</p>
+        <input type="text" hidden="hidden" name="pro" value={{ wtf }}>
+</form>
+<form id="form1" action="http://127.0.0.1:8000/one/" method="post">{% csrf_token %}
+<p><button type="submit" name="definite">Definite</button></a> - Send definite request<span style='padding-left:35px;'>
+    <select align="center" name="tag">
+            {% for i in ftw %}
+                <option>{{ i.tag }}</option>
+            {% endfor %}
+    </select> - Select request tag</p>
+        <p><button type="submit" name="negative">Negative</button></a> - Create new negative request</p>
+        <input type="text" hidden="hidden" name="pro" value={{ wtf }}>
+</form>
+<form action="http://127.0.0.1:8000/create/" method="post">{% csrf_token %}
+<p><input type="submit" value="Positive"></a> - Create new positive request</p>
+        <input type="text" hidden="hidden" name="pro" value={{ wtf }}>
+</form>
+</form>
+<input type="text" hidden="hidden" name="pro" value={{ wtf }}>
+{% endblock content %}
